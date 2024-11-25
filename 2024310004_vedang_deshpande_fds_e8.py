@@ -15,7 +15,7 @@ FY MTech Computer
 1. Data Collection and Preprocessing
 """
 
-!pip install Streamlit
+
 
 import pandas as pd
 import seaborn as sns
