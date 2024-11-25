@@ -12,8 +12,6 @@ UID:2024310004
 
 FY MTech Computer
 
-1. Data Collection and Preprocessing
-"""
 
 
 
@@ -34,7 +32,7 @@ data[['Temperature', 'Humidity']] =scaler.fit_transform(data[['Temperature', 'Hu
 sns.pairplot(data, diag_kind='kde')
 plt.show()
 
-"""2. Build a Machine Learning Model"""
+
 
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import Ridge
@@ -51,10 +49,11 @@ y_pred = model.predict(X_test)
 mse = mean_squared_error(y_test, y_pred)
 print("Mean Squared Error:", mse)
 
-"""3. Build a Streamlit App"""
+
 
 import streamlit as st
 import numpy as np
+st.title("ENERGY CONSUMPTION PREDICTION")
 
 temperature = st.number_input("Temperature (°C)")
 humidity = st.number_input("Humidity (%)")
@@ -65,7 +64,7 @@ if st.button("Predict"):
   prediction = model.predict(input_features)[0]
   st.write(f"Predicted Energy Consumption: {prediction:.2f} kWh")
 
-"""4. Deployment"""
+
 
 import joblib
 joblib.dump(model, 'ridge_model.pkl')
